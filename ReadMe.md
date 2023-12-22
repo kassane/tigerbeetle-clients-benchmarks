@@ -8,9 +8,11 @@ The code consists of submitting one million transfers to the TigerBeetle cluster
 
 In order to build and run all clients:
 
-- Go > 1.17
-- Dotnet SDK 6.0
+- Go 1.17+
+- Dotnet SDK 7.0
 - Java JDK 11+ and Maven 3.1+
+- C w/ CMake 3.14+
+- D 2.105+
 
 ## Usage
 
