@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
-zig build run -Doptimize=ReleaseSafe
+
+../tigerbeetle/zig/zig build run \
+    -Doptimize=ReleaseSafe \
+    -freference-trace \
+    --prominent-compile-errors

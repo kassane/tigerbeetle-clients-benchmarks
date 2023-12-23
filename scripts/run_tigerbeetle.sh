@@ -4,7 +4,7 @@ set -eEuo pipefail
 PATH=$PATH:$PWD/tigerbeetle/zig-out/bin
 
 echo "Building TigerBeetle..."
-(cd tigerbeetle && ./zig/zig build -Dcpu=baseline -Doptimize=ReleaseSafe)
+(cd tigerbeetle && ./zig/zig build -Dcpu=baseline -Drelease -Dconfig=production)
 
 echo "Formatting replica ..."
 

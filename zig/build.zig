@@ -1,7 +1,7 @@
 const std = @import("std");
 const builtin = @import("builtin");
 
-pub fn build(b: *std.build.Builder) void {
+pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
@@ -9,7 +9,7 @@ pub fn build(b: *std.build.Builder) void {
         .name = "bench",
         .target = target,
         .optimize = optimize,
-        .root_source_file = .{ .path = "bench.zig" },
+        .root_source_file = b.path("bench.zig"),
     });
     add_zig_files(b, bench, &.{
         "tigerbeetle.zig",
@@ -57,7 +57,29 @@ fn add_zig_files(b: *std.Build, exe: *std.Build.Step.Compile, comptime files: []
         perfetto,
         tracy,
     };
-    options.addOption(TracerBackend, "tracer_backend", .none);
+    options.addOption(
+        TracerBackend,
+        "tracer_backend",
+        .none,
+    );
+
+    options.addOption(
+        ?[40]u8,
+        "git_commit",
+        null,
+    );
+
+    options.addOption(
+        ?[]const u8,
+        "release",
+        null,
+    );
+
+    options.addOption(
+        ?[]const u8,
+        "release_client_min",
+        null,
+    );
 
     const aof_record_enable = b.option(bool, "config-aof-record", "Enable AOF Recording.") orelse false;
     const aof_recovery_enable = b.option(bool, "config-aof-recovery", "Enable AOF Recovery mode.") orelse false;
@@ -74,14 +96,14 @@ fn add_zig_files(b: *std.Build, exe: *std.Build.Step.Compile, comptime files: []
 
     inline for (files) |file| {
         const pkg = b.createModule(.{
-            .source_file = .{ .path = "../tigerbeetle/src/" ++ file },
-            .dependencies = &.{
+            .root_source_file = b.path("../tigerbeetle/src/" ++ file),
+            .imports = &.{
                 .{
                     .name = "vsr_options",
                     .module = vsr_options,
                 },
             },
         });
-        exe.addModule(file, pkg);
+        exe.root_module.addImport(file, pkg);
     }
 }

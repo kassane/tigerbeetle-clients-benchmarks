@@ -1,5 +1,4 @@
-/zig-cache
-/zig-out
+.zig-*
 0_0.tigerbeetle.bench
 dotnet/bin
 dotnet/obj
@@ -10,3 +9,5 @@ zig/zig-out
 tigerbeetle/
 build/
 .vscode/
+rust/Cargo.lock
+target/

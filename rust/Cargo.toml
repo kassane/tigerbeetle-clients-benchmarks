@@ -1,0 +1,8 @@
+[package]
+name = "tb_bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pollster = { version = "0.3.0", features = ["macro"] }
+tigerbeetle-unofficial = "0.4.0"

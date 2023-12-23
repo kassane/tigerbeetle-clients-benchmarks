@@ -114,11 +114,10 @@ fn send(
     const start_ms = std.time.milliTimestamp();
 
     client.request(
-        @as(u128, @intCast(@intFromPtr(&result))),
         send_complete,
+        @intCast(@intFromPtr(&result)),
         .create_transfers,
-        message,
-        payload.len,
+        payload,
     );
 
     while (result == null) {
