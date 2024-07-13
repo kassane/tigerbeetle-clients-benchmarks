@@ -8,5 +8,5 @@ git clone --recursive https://github.com/tigerbeetle/tigerbeetle.git
 echo "Building TigerBeetle Dotnet..."
 (cd tigerbeetle/src/clients/dotnet && dotnet build -c Release && dotnet pack -c Release)
 
-echo "Building TigerBeetle Java..."
-(cd tigerbeetle/src/clients/java && mvn -B package)
+# echo "Building TigerBeetle Java..."
+# (cd tigerbeetle/src/clients/java && mvn -B package)

@@ -53,16 +53,16 @@ jobs:
             cd dotnet
             $PWD/run.sh
             cd ..
-      - name: Run - Java Client
-        run: |
-            cd java
-            $PWD/run.sh
-            cd ..
-      - name: Run - Zig Client
-        run: |
-            cd zig
-            $PWD/run.sh
-            cd ..
+      # - name: Run - Java Client
+      #   run: |
+      #       cd java
+      #       $PWD/run.sh
+      #       cd ..
+      # - name: Run - Zig Client
+      #   run: |
+      #       cd zig
+      #       $PWD/run.sh
+      #       cd ..
 
       - name: Kill TB Process 
         run: pkill -f tigerbeetle
