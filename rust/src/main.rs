@@ -1,5 +1,5 @@
 use std::time::SystemTime;
-use tigerbeetle_unofficial as tb;
+use tigerbeetle_unofficial::{self as tb, error::CreateTransfersError};
 
 #[pollster::main]
 async fn main() {
@@ -31,6 +31,11 @@ async fn main() {
             client
                 .create_transfers(transfers)
                 .await
+                .or_else(|e| match e {
+                    // ignore API errors
+                    CreateTransfersError::Api(_) => Ok(()),
+                    e => Err(e),
+                })
                 .expect("creating transfers");
             let elapsed = start_time.elapsed().expect("time elapsed").as_millis() as usize;
 
