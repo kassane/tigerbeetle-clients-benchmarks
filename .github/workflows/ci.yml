@@ -47,9 +47,9 @@ jobs:
             cd d
             $PWD/run.sh
             cd ..
-      - name: Run - .Net Client
+      - name: Run - Rust Client
         run: |
-            cd dotnet
+            cd rust
             $PWD/run.sh
             cd ..
       - name: Run - Java Client
@@ -57,9 +57,9 @@ jobs:
             cd java
             $PWD/run.sh
             cd ..
-      - name: Run - Rust Client
+      - name: Run - .Net Client
         run: |
-            cd rust
+            cd dotnet
             $PWD/run.sh
             cd ..
       # - name: Run - Zig Client
