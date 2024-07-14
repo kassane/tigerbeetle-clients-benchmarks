@@ -18,7 +18,6 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - uses: mlugg/setup-zig@v1
       - uses: lukka/get-cmake@latest
         with:
           cmakeVersion: latest
@@ -53,11 +52,16 @@ jobs:
             cd dotnet
             $PWD/run.sh
             cd ..
-      # - name: Run - Java Client
-      #   run: |
-      #       cd java
-      #       $PWD/run.sh
-      #       cd ..
+      - name: Run - Java Client
+        run: |
+            cd java
+            $PWD/run.sh
+            cd ..
+      - name: Run - Rust Client
+        run: |
+            cd rust
+            $PWD/run.sh
+            cd ..
       # - name: Run - Zig Client
       #   run: |
       #       cd zig

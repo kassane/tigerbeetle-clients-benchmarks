@@ -5,20 +5,12 @@ import (
 	"log"
 	"time"
 
-	tb "github.com/tigerbeetle/tigerbeetle-go"
-	tb_types "github.com/tigerbeetle/tigerbeetle-go/pkg/types"
+	. "github.com/tigerbeetle/tigerbeetle-go"
+	. "github.com/tigerbeetle/tigerbeetle-go/pkg/types"
 )
 
-func uint128(value string) tb_types.Uint128 {
-	x, err := tb_types.HexStringToUint128(value)
-	if err != nil {
-		panic(err)
-	}
-	return x
-}
-
 func main() {
-	client, err := tb.NewClient(tb_types.ToUint128(0), []string{"3000"}, 1)
+	client, err := NewClient(ToUint128(0), []string{"3000"}, 32)
 	if err != nil {
 		log.Printf("Error creating client: %s", err)
 		return
@@ -33,16 +25,16 @@ func main() {
 
 		time_total_ms := int64(0)
 		time_batch_max_ms := int64(0)
-		batch := make([]tb_types.Transfer, BATCH_SIZE)
+		batch := make([]Transfer, BATCH_SIZE)
 		for i := 0; i < SAMPLES; i += BATCH_SIZE {
 			for j := 0; (j < BATCH_SIZE) && (i+j < SAMPLES); j++ {
-				batch[j] = tb_types.Transfer{
-					ID:              uint128("0"),
-					DebitAccountID:  uint128("0"),
-					CreditAccountID: uint128("0"),
+				batch[j] = Transfer{
+					ID:              ToUint128(0),
+					DebitAccountID:  ToUint128(0),
+					CreditAccountID: ToUint128(0),
 					Ledger:          1,
 					Code:            1,
-					Amount:          tb_types.ToUint128(10),
+					Amount:          ToUint128(10),
 				}
 			}
 

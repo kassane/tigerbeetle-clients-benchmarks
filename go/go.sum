@@ -1,4 +1,2 @@
-github.com/tigerbeetle/tigerbeetle-go v0.14.167 h1:f6AwZtT1D4BpOaJuSXe07ZS2L9fuPeRdxHhsYrRqTiI=
-github.com/tigerbeetle/tigerbeetle-go v0.14.167/go.mod h1:d6G7n4OlD7GLHd62x0VlWPXeI/L0SoNNTfm/ee24GJI=
-github.com/tigerbeetledb/tigerbeetle-go v0.13.57 h1:Sn5SUXGXbE3mm5bzJZ+sQ7tq5Os8EoUcKx2nmzllXiQ=
-github.com/tigerbeetledb/tigerbeetle-go v0.13.57/go.mod h1:3Tjdd459YDuWJM1mHqafj/6r1lMXkqAJJGrhZ6Hsrv8=
+github.com/tigerbeetle/tigerbeetle-go v0.15.3 h1:LbhdyVZOt28rGh21FKBGOzn8mUXxktGxbCvkG/CH0Zg=
+github.com/tigerbeetle/tigerbeetle-go v0.15.3/go.mod h1:d6G7n4OlD7GLHd62x0VlWPXeI/L0SoNNTfm/ee24GJI=
